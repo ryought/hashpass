@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hashpass</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="sjcl.js"></script>
+    <script tyoe="text/javascript" src="clipboard.js"></script>
+    <script type="text/javascript" src="hashpass.js"></script>
+  </head>
+  <body>
+    <p class="small-bottom-margin">Domain:</p>
+    <input id="domain" class="small-top-margin" type="text" onchange="update()"/>
+    <p class="small-bottom-margin">Key:</p>
+    <input id="key" class="small-top-margin" type="password" onchange="update()"/>
+    <p class="small-bottom-margin">Hash:</p>
+    <input id="hash" class="small-top-margin" type="text" readonly="true" />
+    <!-- Trigger -->
+    <button class="btn" data-clipboard-target="#hash">
+      Copy to clipboard
+    </button>
+    <p id="message">&nbsp;</p>
+
+    <script type="text/javascript">
+     // clipboard.js
+     var clipboard = new Clipboard('.btn');
+     // set to domain default(referrer) value
+     $('#domain').val(document.referrer)
+    </script>
+  </body>
+</html>
